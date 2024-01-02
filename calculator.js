@@ -1,4 +1,4 @@
-console.log("start\n\n");
+// console.log("start\n\n");
 
 function operate(operator, a, b) {
     let result;
@@ -22,6 +22,5 @@ function operate(operator, a, b) {
     return result;
 }
 
-console.log(operate("/", 2, 3));
 
-console.log("\n\nend");
+// console.log("\n\nend");
