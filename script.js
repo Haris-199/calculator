@@ -2,16 +2,15 @@ const calculatorBody = document.querySelector("#calculator-body");
 const display = document.querySelector("#display");
 const text = display.querySelector("#text");
 const history = display.querySelector("#history");
-
-let nums = ["", ""];
-let operator = "";
-let index = 0;
-
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".evaluate");
 const clearBtn = document.querySelector(".clear");
 const point = document.querySelector(".point");
+
+let nums = ["", ""];
+let operator = "";
+let index = 0;
 
 numbers.forEach( button => {
     button.addEventListener("click", event => {
@@ -39,9 +38,12 @@ equalBtn.addEventListener("click", event => {
     let num2 = parseFloat(nums[1]);
 
     num1 = operate(operator, num1, num2);
-    nums[0] = `${num1}`;
-    text.textContent = nums[0];
+    nums[0] = `${parseFloat(+num1.toFixed(15))}`;
     index = 0;
+
+    let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+    displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
+    text.textContent = displayVal;
 });
 
 clearBtn.addEventListener("click", event => {
