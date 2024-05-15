@@ -34,16 +34,18 @@ operators.forEach( button => {
 });
 
 equalBtn.addEventListener("click", event => {
-    let num1 = parseFloat(nums[0]);
-    let num2 = parseFloat(nums[1]);
-
-    num1 = operate(operator, num1, num2);
-    nums[0] = `${parseFloat(+num1.toFixed(15))}`;
-    index = 0;
-
-    let displayVal = `${parseFloat(+num1.toFixed(15))}`;
-    displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
-    text.textContent = displayVal;
+    if (nums[1] && operator && "+÷×−".includes(operator)) {
+        let num1 = parseFloat(nums[0]);
+        let num2 = parseFloat(nums[1]);
+        
+        num1 = operate(operator, num1, num2);
+        nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+        index = 0;
+        
+        let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+        displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
+        text.textContent = displayVal;
+    }
 });
 
 clearBtn.addEventListener("click", event => {
