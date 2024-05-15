@@ -77,10 +77,10 @@ button:hover {
     background-color: rgb(220, 235, 220);
 }
 
-#clear-btn {
+.clear {
     width: 100%;
 }
 
-#clear-btn:hover {
+.clear:hover {
     background-color: rgb(235, 220, 220);
 }
