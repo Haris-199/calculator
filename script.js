@@ -17,3 +17,16 @@ numbers.forEach( button => {
         text.textContent = nums[index];
     });
 });
+
+operators.forEach( button => {
+    button.addEventListener("click", event => {
+        if (index === 0) {
+            history.textContent = `${nums[index]} ${button.textContent}`;
+            text.textContent = "\u00A0";
+            operator = button.textContent;
+            index = 1;
+        } else if (index === 1) {
+
+        }
+    });
+});
