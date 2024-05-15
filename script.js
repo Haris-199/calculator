@@ -30,3 +30,12 @@ operators.forEach( button => {
         }
     });
 });
+
+equalBtn.addEventListener("click", event => {
+    let num1 = parseFloat(nums[0]);
+    let num2 = parseFloat(nums[1]);
+
+    num1 = operate(operator, num1, num2);
+    nums[0] = `${num1}`;
+    text.textContent = nums[0];
+});

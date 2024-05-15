@@ -6,13 +6,13 @@ function operate(operator, a, b) {
         case "+":
             result = a + b;
             break;
-        case "-":
+        case "−":
             result = a - b;
             break;
-        case "*":
+        case "×":
             result = a * b;
             break;
-        case "/":
+        case "÷":
             result = a / b;
             break;
         default:
