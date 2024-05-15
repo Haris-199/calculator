@@ -25,12 +25,20 @@ operators.forEach( button => {
             history.textContent = `${nums[index]} ${button.textContent}`;
             text.textContent = "\u00A0";
             operator = button.textContent;
+
             index = 1;
             nums[1] = "";
+            point.disabled = false;
         } else if (index === 1) {
 
         }
     });
+});
+
+point.addEventListener("click", (event) => {
+    nums[index] += ".";
+    point.disabled = true;
+    text.textContent = nums[index];
 });
 
 equalBtn.addEventListener("click", event => {
@@ -41,6 +49,7 @@ equalBtn.addEventListener("click", event => {
         num1 = operate(operator, num1, num2);
         nums[0] = `${parseFloat(+num1.toFixed(15))}`;
         index = 0;
+        point.disabled = nums[0].includes(".");
         
         let displayVal = `${parseFloat(+num1.toFixed(15))}`;
         displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
@@ -50,6 +59,7 @@ equalBtn.addEventListener("click", event => {
 
 clearBtn.addEventListener("click", event => {
     index = 0;
+    point.disabled = false;
     nums = ["", ""];
     operator = "";
     history.textContent = "\u00A0";
