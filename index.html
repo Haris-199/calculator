@@ -5,31 +5,34 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
         <title>Calculator</title>
     </head>
     <body>
         <div id="calculator-body">
-            <div id="display">
-                <p id="history">hello</p>
-                <p id="text">hi</p>
+            <div id="display-container">
+                <div id="display">
+                    <p id="history">hi</p>
+                    <p id="text">hello</p>
+                </div>
             </div>
-            <button id="clear-btn">Clear</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>÷</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>×</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>−</button>
-            <button>.</button>
-            <button>0</button>
-            <button>=</button>
-            <button>+</button>
+            <button type="button" id="clear-btn">Clear</button>
+            <button type="button">7</button>
+            <button type="button">8</button>
+            <button type="button">9</button>
+            <button type="button" class="operator">÷</button>
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">6</button>
+            <button type="button" class="operator">×</button>
+            <button type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button" class="operator">−</button>
+            <button type="button">.</button>
+            <button type="button">0</button>
+            <button type="button" class="operator">=</button>
+            <button type="button" class="operator">+</button>
         </div>
     </body>
 </html>
