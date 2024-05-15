@@ -9,7 +9,8 @@ let index = 0;
 
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-const equalBtn = document.querySelector(".evaluate"); 
+const equalBtn = document.querySelector(".evaluate");
+const point = document.querySelector(".point");
 
 numbers.forEach( button => {
     button.addEventListener("click", event => {
@@ -20,11 +21,12 @@ numbers.forEach( button => {
 
 operators.forEach( button => {
     button.addEventListener("click", event => {
-        if (index === 0) {
+        if (nums[0] && index === 0) {
             history.textContent = `${nums[index]} ${button.textContent}`;
             text.textContent = "\u00A0";
             operator = button.textContent;
             index = 1;
+            nums[1] = "";
         } else if (index === 1) {
 
         }
@@ -37,7 +39,6 @@ equalBtn.addEventListener("click", event => {
 
     num1 = operate(operator, num1, num2);
     nums[0] = `${num1}`;
-    nums[1] = "";
     text.textContent = nums[0];
     index = 0;
 });
