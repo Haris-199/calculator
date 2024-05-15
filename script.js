@@ -37,5 +37,7 @@ equalBtn.addEventListener("click", event => {
 
     num1 = operate(operator, num1, num2);
     nums[0] = `${num1}`;
+    nums[1] = "";
     text.textContent = nums[0];
+    index = 0;
 });
