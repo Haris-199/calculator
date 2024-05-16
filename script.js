@@ -124,6 +124,7 @@ document.addEventListener("keydown", event => {
     if ("0123456789".includes(key)) {
         nums[index] += key;
         text.textContent = nums[index];
+        return;
     } else if ("+÷×−".includes(key)) {
         if (nums[0] && index === 0) {
             history.textContent = `${nums[index]} ${key}`;
@@ -149,6 +150,7 @@ document.addEventListener("keydown", event => {
             text.textContent = "\u00A0";
             history.textContent = ` ${nums[0]} ${operator}`;
         }
+        return;
     } 
     
     switch(key) {
@@ -175,6 +177,12 @@ document.addEventListener("keydown", event => {
             }
             break;
         case "Escape":
+            index = 0;
+            point.disabled = false;
+            nums = ["", ""];
+            operator = "";
+            history.textContent = "\u00A0";
+            text.textContent = "\u00A0";
             break;
         case "Delete":
             break;
