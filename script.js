@@ -83,3 +83,12 @@ negateBtn.addEventListener("click", event => {
         text.textContent = nums[index];
     }
 });
+
+percentBtn.addEventListener("click", event => {
+    if (nums[index]) {
+        let num = parseFloat(nums[index]);
+        num /= 100;
+        nums[index] = `${num}`;
+        text.textContent = nums[index];
+    }
+});
