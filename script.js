@@ -4,6 +4,8 @@ const text = display.querySelector("#text");
 const history = display.querySelector("#history");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const percentBtn = document.querySelector(".percent");
+const negateBtn = document.querySelector(".negate");
 const equalBtn = document.querySelector(".evaluate");
 const clearBtn = document.querySelector(".clear");
 const clearEntryBtn = document.querySelector(".clear-entry");
@@ -69,5 +71,15 @@ clearBtn.addEventListener("click", event => {
 
 clearEntryBtn.addEventListener("click", event => {
     nums[index] = "";
-    text.textContent = "\u00A0"
+    text.textContent = "\u00A0";
+});
+
+negateBtn.addEventListener("click", event => {
+    if (nums[index][0] === "-" && nums[index].length > 2) {
+        nums[index] = nums[index].substring(1);
+        text.textContent = nums[index];
+    } else if (nums[index]) {
+        nums[index] = "-" + nums[index];
+        text.textContent = nums[index];
+    }
 });
