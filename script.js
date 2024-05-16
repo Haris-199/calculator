@@ -89,7 +89,7 @@ clearEntryBtn.addEventListener("click", event => {
 });
 
 negateBtn.addEventListener("click", event => {
-    if (nums[index][0] === "-" && nums[index].length > 2) {
+    if (nums[index][0] === "-" && nums[index].length >= 2) {
         nums[index] = nums[index].substring(1);
         let displayVal = nums[index];
         displayVal = displayVal.substring(0, 16);
@@ -192,7 +192,7 @@ document.addEventListener("keydown", event => {
             break;
         case "n":
         case "N":
-            if (nums[index][0] === "-" && nums[index].length > 2) {
+            if (nums[index][0] === "-" && nums[index].length >= 2) {
                 nums[index] = nums[index].substring(1);
                 let displayVal = nums[index];
                 displayVal = displayVal.substring(0, 16);
