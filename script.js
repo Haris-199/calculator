@@ -6,6 +6,7 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".evaluate");
 const clearBtn = document.querySelector(".clear");
+const clearEntryBtn = document.querySelector(".clear-entry");
 const point = document.querySelector(".point");
 
 let nums = ["", ""];
@@ -64,4 +65,9 @@ clearBtn.addEventListener("click", event => {
     operator = "";
     history.textContent = "\u00A0";
     text.textContent = "\u00A0";
+});
+
+clearEntryBtn.addEventListener("click", event => {
+    nums[index] = "";
+    text.textContent = "\u00A0"
 });
