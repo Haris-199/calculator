@@ -110,3 +110,11 @@ percentBtn.addEventListener("click", event => {
         text.textContent = nums[index];
     }
 });
+
+document.addEventListener("keydown", event => {
+    let key = event.key;
+    if ("0123456789".includes(key)) {
+        nums[index] += key;
+        text.textContent = nums[index];
+    }
+});
