@@ -32,8 +32,21 @@ operators.forEach( button => {
             index = 1;
             nums[1] = "";
             point.disabled = false;
-        } else if (index === 1) {
-
+        } else if (nums[1] && index === 1 && operator && "+÷×−".includes(operator)) {
+            let num1 = parseFloat(nums[0]);
+            let num2 = parseFloat(nums[1]);
+            
+            num1 = operate(operator, num1, num2);
+            nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+            index = 1;
+            nums[1] = "";
+            point.disabled = nums[0].includes(".");
+            operator = button.textContent;
+            
+            let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+            displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
+            text.textContent = "\u00A0";
+            history.textContent = ` ${nums[0]} ${operator}`;
         }
     });
 });
@@ -48,7 +61,7 @@ equalBtn.addEventListener("click", event => {
     if (nums[1] && operator && "+÷×−".includes(operator)) {
         let num1 = parseFloat(nums[0]);
         let num2 = parseFloat(nums[1]);
-        
+
         num1 = operate(operator, num1, num2);
         nums[0] = `${parseFloat(+num1.toFixed(15))}`;
         index = 0;
@@ -57,6 +70,7 @@ equalBtn.addEventListener("click", event => {
         let displayVal = `${parseFloat(+num1.toFixed(15))}`;
         displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
         text.textContent = displayVal;
+        history.textContent += ` ${nums[1]} =`;
     }
 });
 
