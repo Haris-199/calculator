@@ -149,5 +149,9 @@ document.addEventListener("keydown", event => {
             text.textContent = "\u00A0";
             history.textContent = ` ${nums[0]} ${operator}`;
         }
+    } else if (key === ".") {
+        nums[index] += ".";
+        point.disabled = true;
+        text.textContent = nums[index];
     }
 });
