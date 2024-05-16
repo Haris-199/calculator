@@ -91,10 +91,14 @@ clearEntryBtn.addEventListener("click", event => {
 negateBtn.addEventListener("click", event => {
     if (nums[index][0] === "-" && nums[index].length > 2) {
         nums[index] = nums[index].substring(1);
-        text.textContent = nums[index];
+        let displayVal = nums[index];
+        displayVal = displayVal.substring(0, 16);
+        text.textContent = displayVal;
     } else if (nums[index]) {
         nums[index] = "-" + nums[index];
-        text.textContent = nums[index];
+        let displayVal = nums[index];
+        displayVal = displayVal.substring(0, 17);
+        text.textContent = displayVal;
     }
 });
 
