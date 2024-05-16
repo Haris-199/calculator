@@ -24,6 +24,10 @@ numbers.forEach( button => {
 
 operators.forEach( button => {
     button.addEventListener("click", event => {
+
+        if (nums[0] === "." || nums[1] === ".")
+            return;
+
         if (nums[0] && index === 0) {
             history.textContent = `${nums[index]} ${button.textContent}`;
             text.textContent = "\u00A0";
@@ -35,6 +39,7 @@ operators.forEach( button => {
         } else if (nums[1] && index === 1) {
             let num1 = parseFloat(nums[0]);
             let num2 = parseFloat(nums[1]);
+
             
             num1 = operate(operator, num1, num2);
             nums[0] = `${parseFloat(+num1.toFixed(15))}`;
@@ -58,6 +63,8 @@ point.addEventListener("click", (event) => {
 });
 
 equalBtn.addEventListener("click", event => {
+    if (nums[0] === "." || nums[1] === ".")
+        return;
     if (nums[1] && operator && "+÷×−".includes(operator)) {
         let num1 = parseFloat(nums[0]);
         let num2 = parseFloat(nums[1]);
@@ -126,6 +133,10 @@ document.addEventListener("keydown", event => {
         text.textContent = nums[index];
         return;
     } else if ("+÷×−".includes(key)) {
+
+        if (nums[0] === "." || nums[1] === ".")
+            return;
+
         if (nums[0] && index === 0) {
             history.textContent = `${nums[index]} ${key}`;
             text.textContent = "\u00A0";
@@ -155,12 +166,17 @@ document.addEventListener("keydown", event => {
     
     switch(key) {
         case ".":
-            nums[index] += ".";
-            point.disabled = true;
-            text.textContent = nums[index];
+            if (!nums[index].includes(".")) {
+                nums[index] += ".";
+                point.disabled = true;
+                text.textContent = nums[index];
+            }
             break;
         case "=":
         case "Enter":
+            if (nums[0] === "." || nums[1] === ".")
+                return;
+
             if (nums[1] && operator && "+÷×−".includes(operator)) {
                 let num1 = parseFloat(nums[0]);
                 let num2 = parseFloat(nums[1]);
