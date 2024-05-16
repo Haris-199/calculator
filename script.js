@@ -185,6 +185,8 @@ document.addEventListener("keydown", event => {
             text.textContent = "\u00A0";
             break;
         case "Delete":
+            nums[index] = "";
+            text.textContent = "\u00A0";
             break;
         case "Backspace":
             break;
