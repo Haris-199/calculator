@@ -189,6 +189,10 @@ document.addEventListener("keydown", event => {
             text.textContent = "\u00A0";
             break;
         case "Backspace":
+            nums[index] = nums[index].slice(0, -1);
+            text.textContent = nums[index];
+            if (!nums[index])
+                text.textContent = "\u00A0";
             break;
         case "n":
         case "N":
