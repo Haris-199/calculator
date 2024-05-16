@@ -192,11 +192,19 @@ document.addEventListener("keydown", event => {
             break;
         case "n":
         case "N":
+            if (nums[index][0] === "-" && nums[index].length > 2) {
+                nums[index] = nums[index].substring(1);
+                let displayVal = nums[index];
+                displayVal = displayVal.substring(0, 16);
+                text.textContent = displayVal;
+            } else if (nums[index]) {
+                nums[index] = "-" + nums[index];
+                let displayVal = nums[index];
+                displayVal = displayVal.substring(0, 17);
+                text.textContent = displayVal;
+            }
             break;
         case "%":
             break;
     }
-    
-    
-    
 });
