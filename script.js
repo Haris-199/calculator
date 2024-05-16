@@ -205,6 +205,12 @@ document.addEventListener("keydown", event => {
             }
             break;
         case "%":
+            if (nums[index]) {
+                let num = parseFloat(nums[index]);
+                num /= 100;
+                nums[index] = `${num}`;
+                text.textContent = nums[index];
+            }
             break;
     }
 });
