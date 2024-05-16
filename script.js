@@ -149,9 +149,44 @@ document.addEventListener("keydown", event => {
             text.textContent = "\u00A0";
             history.textContent = ` ${nums[0]} ${operator}`;
         }
-    } else if (key === ".") {
-        nums[index] += ".";
-        point.disabled = true;
-        text.textContent = nums[index];
+    } 
+    
+    switch(key) {
+        case ".":
+            nums[index] += ".";
+            point.disabled = true;
+            text.textContent = nums[index];
+            break;
+        case "=":
+        case "Enter":
+            if (nums[1] && operator && "+÷×−".includes(operator)) {
+                let num1 = parseFloat(nums[0]);
+                let num2 = parseFloat(nums[1]);
+        
+                num1 = operate(operator, num1, num2);
+                nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+                index = 0;
+                point.disabled = nums[0].includes(".");
+                
+                let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+                displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
+                text.textContent = displayVal;
+                history.textContent += ` ${nums[1]} =`;
+            }
+            break;
+        case "Escape":
+            break;
+        case "Delete":
+            break;
+        case "Backspace":
+            break;
+        case "n":
+        case "N":
+            break;
+        case "%":
+            break;
     }
+    
+    
+    
 });
