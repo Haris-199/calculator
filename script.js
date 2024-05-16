@@ -40,7 +40,16 @@ operators.forEach( button => {
             let num1 = parseFloat(nums[0]);
             let num2 = parseFloat(nums[1]);
 
-            
+            if (num2 === 0 && operator === "÷") {
+                index = 0;
+                point.disabled = false;
+                nums = ["", ""];
+                operator = "";
+                history.textContent = "\u00A0";
+                text.textContent = "Can't divide by 0 :(";
+                return;
+            }
+
             num1 = operate(operator, num1, num2);
             nums[0] = `${parseFloat(+num1.toFixed(15))}`;
             index = 1;
@@ -68,6 +77,16 @@ equalBtn.addEventListener("click", event => {
     if (nums[1] && operator && "+÷×−".includes(operator)) {
         let num1 = parseFloat(nums[0]);
         let num2 = parseFloat(nums[1]);
+
+        if (num2 === 0 && operator === "÷") {
+            index = 0;
+            point.disabled = false;
+            nums = ["", ""];
+            operator = "";
+            history.textContent = "\u00A0";
+            text.textContent = "Can't divide by 0 :(";
+            return;
+        }
 
         num1 = operate(operator, num1, num2);
         nums[0] = `${parseFloat(+num1.toFixed(15))}`;
@@ -148,14 +167,23 @@ document.addEventListener("keydown", event => {
         } else if (nums[1] && index === 1 && operator) {
             let num1 = parseFloat(nums[0]);
             let num2 = parseFloat(nums[1]);
-            
+
+            if (num2 === 0 && operator === "÷") {
+                index = 0;
+                point.disabled = false;
+                nums = ["", ""];
+                operator = "";
+                history.textContent = "\u00A0";
+                text.textContent = "Can't divide by 0 :(";
+                return;
+            }
             num1 = operate(operator, num1, num2);
             nums[0] = `${parseFloat(+num1.toFixed(15))}`;
             index = 1;
             nums[1] = "";
             point.disabled = nums[0].includes(".");
             operator = key;
-            
+
             let displayVal = `${parseFloat(+num1.toFixed(15))}`;
             displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
             text.textContent = "\u00A0";
@@ -180,7 +208,16 @@ document.addEventListener("keydown", event => {
             if (nums[1] && operator && "+÷×−".includes(operator)) {
                 let num1 = parseFloat(nums[0]);
                 let num2 = parseFloat(nums[1]);
-        
+
+                if (num2 === 0 && operator === "÷") {
+                    index = 0;
+                    point.disabled = false;
+                    nums = ["", ""];
+                    operator = "";
+                    history.textContent = "\u00A0";
+                    text.textContent = "Can't divide by 0 :(";
+                    return;
+                }
                 num1 = operate(operator, num1, num2);
                 nums[0] = `${parseFloat(+num1.toFixed(15))}`;
                 index = 0;
