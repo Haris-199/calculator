@@ -51,13 +51,13 @@ operators.forEach( button => {
             }
 
             num1 = operate(operator, num1, num2);
-            nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+            nums[0] = `${parseFloat(+num1.toFixed(8))}`;
             index = 1;
             nums[1] = "";
             point.disabled = nums[0].includes(".");
             operator = button.textContent;
             
-            let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+            let displayVal = `${parseFloat(+num1.toFixed(8))}`;
             displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
             text.textContent = "\u00A0";
             history.textContent = ` ${nums[0]} ${operator}`;
@@ -90,11 +90,11 @@ equalBtn.addEventListener("click", event => {
 
         let prevNum = nums[0];
         num1 = operate(operator, num1, num2);
-        nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+        nums[0] = `${parseFloat(+num1.toFixed(8))}`;
         index = 0;
         point.disabled = nums[0].includes(".");
         
-        let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+        let displayVal = `${parseFloat(+num1.toFixed(8))}`;
         displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
         text.textContent = displayVal;
         history.textContent = `${prevNum} ${operator} ${nums[1]} =`;
@@ -179,13 +179,13 @@ document.addEventListener("keydown", event => {
                 return;
             }
             num1 = operate(operator, num1, num2);
-            nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+            nums[0] = `${parseFloat(+num1.toFixed(8))}`;
             index = 1;
             nums[1] = "";
             point.disabled = nums[0].includes(".");
             operator = key;
 
-            let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+            let displayVal = `${parseFloat(+num1.toFixed(8))}`;
             displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
             text.textContent = "\u00A0";
             history.textContent = ` ${nums[0]} ${operator}`;
@@ -222,11 +222,11 @@ document.addEventListener("keydown", event => {
 
                 let prevNum = nums[0];
                 num1 = operate(operator, num1, num2);
-                nums[0] = `${parseFloat(+num1.toFixed(15))}`;
+                nums[0] = `${parseFloat(+num1.toFixed(8))}`;
                 index = 0;
                 point.disabled = nums[0].includes(".");
                 
-                let displayVal = `${parseFloat(+num1.toFixed(15))}`;
+                let displayVal = `${parseFloat(+num1.toFixed(8))}`;
                 displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
                 text.textContent = displayVal;
                 history.textContent = `${prevNum} ${operator} ${nums[1]} =`;
