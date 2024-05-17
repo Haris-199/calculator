@@ -88,6 +88,7 @@ equalBtn.addEventListener("click", event => {
             return;
         }
 
+        let prevNum = nums[0];
         num1 = operate(operator, num1, num2);
         nums[0] = `${parseFloat(+num1.toFixed(15))}`;
         index = 0;
@@ -96,7 +97,7 @@ equalBtn.addEventListener("click", event => {
         let displayVal = `${parseFloat(+num1.toFixed(15))}`;
         displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
         text.textContent = displayVal;
-        history.textContent += ` ${nums[1]} =`;
+        history.textContent = `${prevNum} ${operator} ${nums[1]} =`;
     }
 });
 
@@ -218,6 +219,8 @@ document.addEventListener("keydown", event => {
                     text.textContent = "Can't divide by 0 :(";
                     return;
                 }
+
+                let prevNum = nums[0];
                 num1 = operate(operator, num1, num2);
                 nums[0] = `${parseFloat(+num1.toFixed(15))}`;
                 index = 0;
@@ -226,7 +229,7 @@ document.addEventListener("keydown", event => {
                 let displayVal = `${parseFloat(+num1.toFixed(15))}`;
                 displayVal = (nums[0][0] === "-")? displayVal.substring(0, 17) : displayVal.substring(0, 16);
                 text.textContent = displayVal;
-                history.textContent += ` ${nums[1]} =`;
+                history.textContent = `${prevNum} ${operator} ${nums[1]} =`;
             }
             break;
         case "Escape":
